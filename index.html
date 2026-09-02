@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BGS Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main id="chat" class="chat position-top-left" aria-label="Game chat">
+        <section class="chat-shell">
+            <section id="composerArea" class="composer-area">
+                <div id="suggestions" class="suggestions" hidden></div>
+
+                <div id="emojiPicker" class="emoji-picker" hidden>
+                    <div class="emoji-toolbar">
+                        <div id="emojiCategories" class="emoji-categories"></div>
+                        <button id="emojiClose" class="icon-button small" type="button" aria-label="Close emoji picker">×</button>
+                    </div>
+                    <label class="emoji-search-wrap">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
+                        <input id="emojiSearch" type="text" placeholder="Search emojis" autocomplete="off">
+                    </label>
+                    <div id="emojiTitle" class="emoji-title">Frequently used</div>
+                    <div id="emojiGrid" class="emoji-grid"></div>
+                </div>
+
+                <div class="composer">
+                    <div id="channelSelectWrap" class="channel-select-wrap">
+                        <span id="channelIndicator" class="channel-indicator"></span>
+                        <button id="channelButton" class="channel-button" type="button" aria-label="Choose chat channel" aria-expanded="false">
+                            <span id="channelButtonLabel">LOCAL</span>
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg>
+                        </button>
+                        <select id="channelSelect" hidden aria-hidden="true"></select>
+                        <div id="channelMenu" class="channel-menu" role="menu" hidden></div>
+                    </div>
+
+                    <textarea id="chatInput" rows="1" maxlength="280" placeholder="Type a message..." spellcheck="true"></textarea>
+
+                    <button id="emojiButton" class="icon-button" type="button" aria-label="Open emoji picker">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5s1.2 2 3.5 2 3.5-2 3.5-2M9 9h.01M15 9h.01"/></svg>
+                    </button>
+
+                    <button id="sendButton" class="send-button" type="button" aria-label="Send message">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 4 17 8-17 8 3-8-3-8Zm3 8h14"/></svg>
+                    </button>
+                </div>
+
+                <div class="composer-footer">
+                    <span><kbd>ENTER</kbd> SEND</span>
+                    <span><kbd>TAB</kbd> COMPLETE</span>
+                    <span><kbd>ESC</kbd> CLOSE</span>
+                    <span id="characterCount">0/280</span>
+                </div>
+            </section>
+
+            <section id="messages" class="messages" aria-live="polite"></section>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
